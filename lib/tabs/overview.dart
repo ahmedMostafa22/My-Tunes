@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:task/widgets/playlist_item.dart';
-import 'package:task/models/playlist.dart';
+import 'package:task/widgets/song_item.dart';
+import 'package:task/models/song.dart';
 
 class Overview extends StatefulWidget {
   final String token;
@@ -14,7 +14,7 @@ class Overview extends StatefulWidget {
 }
 
 class _OverviewState extends State<Overview> {
-  List<PlaylistModel> tracks = [];
+  List<SongModel> tracks = [];
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -35,7 +35,7 @@ class _OverviewState extends State<Overview> {
             tracks.clear();
             Map<String, dynamic> data = json.decode(s.data.body);
             for (int i = 0; i < 5; i++)
-              tracks.add(PlaylistModel(
+              tracks.add(SongModel(
                   name: data['items'][i]['track']['name'].toString(),
                   date: data['items'][i]['played_at'].toString(),
                   art: data['items'][i]['track']['album']['images'][0]['url']));
@@ -60,8 +60,8 @@ class _OverviewState extends State<Overview> {
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
-                          itemBuilder: (context, i) => PlaylistItem(
-                                playlist: PlaylistModel(
+                          itemBuilder: (context, i) => SongItem(
+                                songItem: SongModel(
                                     date: tracks[i].date,
                                     art: tracks[i].art,
                                     name: tracks[i].name),

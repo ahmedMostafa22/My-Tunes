@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task/models/playlist.dart';
+import 'package:task/models/song.dart';
 
-class PlaylistItem extends StatelessWidget {
-  final PlaylistModel playlist;
+class SongItem extends StatelessWidget {
+  final SongModel songItem;
 
-  const PlaylistItem({this.playlist});
+  const SongItem({this.songItem});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +32,7 @@ class PlaylistItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Image.network(
-                  playlist.art,
+                  songItem.art,
                   fit: BoxFit.cover,
                   width: 155,
                   height: 125,
@@ -47,7 +47,7 @@ class PlaylistItem extends StatelessWidget {
                 height: 3,
               ),
               Text(
-                playlist.name,
+                songItem.name,
                 style: TextStyle(color: Colors.white),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -64,7 +64,7 @@ class PlaylistItem extends StatelessWidget {
                   SizedBox(
                     width: 2,
                   ),
-                  Text(playlist.date.substring(0,10))
+                  Text(songItem.date.substring(0,10))
                 ],
               )
             ],
