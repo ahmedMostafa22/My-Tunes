@@ -3,8 +3,8 @@ import 'package:task/models/song.dart';
 
 class SongItem extends StatelessWidget {
   final SongModel songItem;
-
-  const SongItem({this.songItem});
+  final String token;
+  const SongItem({this.songItem, this.token});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,19 +54,7 @@ class SongItem extends StatelessWidget {
               SizedBox(
                 height: 3,
               ),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.date_range,
-                    color: Colors.grey,
-                    size: 15,
-                  ),
-                  SizedBox(
-                    width: 2,
-                  ),
-                  Text(songItem.date.substring(0,10))
-                ],
-              )
+              Text(songItem.subtext)
             ],
           ),
         ],

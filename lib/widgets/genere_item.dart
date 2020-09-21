@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task/models/category.dart';
 
-class CategoryItem extends StatelessWidget {
-  final Category category ;
+class GenreItem extends StatelessWidget {
+  final String genere;
 
-  const CategoryItem({this.category}); 
+  const GenreItem({this.genere});
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -15,13 +14,11 @@ class CategoryItem extends StatelessWidget {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  stops: [0.3, 1],
-                  colors: [Colors.purple[300], Colors.deepPurple])),
+                  stops: [0.02, 1],
+                  colors: [Colors.blue[900], Colors.blue])),
           child: Text(
-            'HIP-HOP',
-            textAlign: TextAlign.right,
-            style:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            genere.toUpperCase(),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           )),
     );
   }

@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
-
-class Album with ChangeNotifier{
+class Album{
   final String art ; 
   final String name ; 
   final String artistName ; 
-  final String releaseDate ;
+  final String id ;
 
-  Album({this.art, this.name, this.artistName, this.releaseDate}); 
+  Album({this.art, this.name, this.artistName, this.id}); 
 
 }
