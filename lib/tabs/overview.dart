@@ -17,6 +17,7 @@ class _OverviewState extends State<Overview> {
   @override
   void initState() {
     super.initState();
+    print(widget.token);
     _future = Provider.of<OverviewProvider>(context, listen: false)
         .fetchOverview(widget.token);
   }
@@ -71,7 +72,7 @@ class _OverviewState extends State<Overview> {
                         scrollDirection: Axis.horizontal,
                         itemCount: recentList.length,
                         itemBuilder: (context, i) =>
-                            SongItem(songItem: recentList[i])),
+                            SongItem(token:widget.token,songItem: recentList[i])),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8),
@@ -91,7 +92,7 @@ class _OverviewState extends State<Overview> {
                           scrollDirection: Axis.horizontal,
                           itemCount: todayRecommendation.length,
                           itemBuilder: (context, j) =>
-                              SongItem(songItem: todayRecommendation[j]))),
+                              SongItem(token:widget.token,songItem: todayRecommendation[j]))),
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
@@ -110,7 +111,7 @@ class _OverviewState extends State<Overview> {
                           scrollDirection: Axis.horizontal,
                           itemCount: newReleases.length,
                           itemBuilder: (context, j) =>
-                              SongItem(songItem: newReleases[j]))),
+                              SongItem(token:widget.token,songItem: newReleases[j]))),
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
@@ -129,7 +130,7 @@ class _OverviewState extends State<Overview> {
                           scrollDirection: Axis.horizontal,
                           itemCount: topTracks.length,
                           itemBuilder: (context, j) =>
-                              SongItem(songItem: topTracks[j]))),
+                              SongItem(token:widget.token,songItem: topTracks[j]))),
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
@@ -148,7 +149,7 @@ class _OverviewState extends State<Overview> {
                           scrollDirection: Axis.horizontal,
                           itemCount: legacy.length,
                           itemBuilder: (context, j) =>
-                              SongItem(songItem: legacy[j]))),
+                              SongItem(token:widget.token,songItem: legacy[j]))),
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
@@ -167,7 +168,7 @@ class _OverviewState extends State<Overview> {
                           scrollDirection: Axis.horizontal,
                           itemCount: oldSchool.length,
                           itemBuilder: (context, j) =>
-                              SongItem(songItem: oldSchool[j]))),
+                              SongItem(token:widget.token,songItem: oldSchool[j]))),
                 ],
               );
             }

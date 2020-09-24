@@ -4,5 +4,6 @@ class SongModel with ChangeNotifier {
   final String subtext;
   final String name;
   final String art;
-  SongModel({this.subtext, this.name, this.art});
+  final String id;
+  SongModel({@required this.id, this.subtext, this.name, this.art});
 }

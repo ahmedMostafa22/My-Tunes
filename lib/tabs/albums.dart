@@ -45,7 +45,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
                   Provider.of<AlbumsProvider>(context, listen: false).albums;
               return ListView.builder(
                   itemCount: albums.length,
-                  itemBuilder: (context, i) => PlaylistItem(album: albums[i]));
+                  itemBuilder: (context, i) => PlaylistItem(album: albums[i],token: widget.token,));
             }
           }),
     );

@@ -12,7 +12,16 @@ final credentials = SpotifyApiCredentials(
     'db50989a20a246a2b4d946e6fe922869', 'c0b45fdc225442b28ce0e865bf81ca73');
 final grant = SpotifyApi.authorizationCodeGrant(credentials);
 final redirectUri = 'spotify-sdk://auth';
-final scopes = ['user-read-email', 'user-library-read','user-modify-playback-state','user-read-recently-played','user-top-read','user-follow-read'];
+final scopes = [
+  'user-read-email',
+  'user-read-playback-state',
+  'user-library-read',
+  'playlist-read-private',
+  'user-modify-playback-state',
+  'user-read-recently-played',
+  'user-top-read',
+  'user-follow-read'
+];
 final authUri =
     grant.getAuthorizationUrl(Uri.parse(redirectUri), scopes: scopes);
 var responseUri;

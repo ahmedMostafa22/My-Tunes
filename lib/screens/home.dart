@@ -6,6 +6,7 @@ import 'package:task/tabs/artists.dart';
 import 'package:task/tabs/geners.dart';
 import 'package:task/tabs/overview.dart';
 import 'package:task/tabs/playlists.dart';
+import 'package:task/tabs/search.dart';
 
 class Home extends StatefulWidget {
   final SpotifyApi spotify;
@@ -41,72 +42,119 @@ class _HomeState extends State<Home> {
           );
         else
           return DefaultTabController(
-            length: 5,
-            child: Scaffold(
-              appBar: GradientAppBar(
-                bottom: PreferredSize(
-                  child: Container(
-                    height: height * 0.22,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(title,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 36,
-                                color: Colors.white)),
-                        SizedBox(height: height * 0.02),
-                        TabBar(
-                          indicatorColor: Colors.blue[600],
-                          indicatorSize: TabBarIndicatorSize.label,
-                          isScrollable: true,
-                          onTap: (ind) {
-                            switch (ind) {
-                              case 0:
-                                setState(() => title = 'Overview');
-                                break;
-                              case 1:
-                                setState(() => title = 'Genres & Moods');
-                                break;
-                              case 2:
-                                setState(() => title = 'Playlists');
-                                break;
-                              case 3:
-                                setState(() => title = 'Artists');
-                                break;
-                              case 4:
-                                setState(() => title = 'Albums');
-                                break;
-                            }
-                          },
-                          tabs: <Widget>[
-                            Tab(child: Text('OVERVIEW')),
-                            Tab(child: Text('GENRES & MOODS')),
-                            Tab(child: Text('PLAYLISTS')),
-                            Tab(child: Text('ARTISTS')),
-                            Tab(child: Text('ALBUMS')),
-                          ],
-                        ),
-                      ],
+            length: 6,
+            child: GestureDetector(
+              onTap: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus) {
+                  currentFocus.unfocus();
+                }
+              },
+              child: Scaffold(
+                resizeToAvoidBottomPadding: true,
+                appBar: GradientAppBar(
+                  bottom: PreferredSize(
+                    child: Container(
+                      height: height * 0.22,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(title,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 36,
+                                  color: Colors.white)),
+                          SizedBox(height: height * 0.02),
+                          TabBar(
+                            indicatorColor: Colors.blue[600],
+                            indicatorSize: TabBarIndicatorSize.label,
+                            isScrollable: true,
+                            onTap: (ind) {
+                              switch (ind) {
+                                case 0:
+                                  setState(() => title = 'Overview');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                                case 1:
+                                  setState(() => title = 'Search');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                                case 2:
+                                  setState(() => title = 'Playlists');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                                case 3:
+                                  setState(() => title = 'Artists');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                                case 4:
+                                  setState(() => title = 'Albums');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                                case 5:
+                                  setState(() => title = 'Genres & Moods');
+                                  FocusScopeNode currentFocus =
+                                      FocusScope.of(context);
+                                  if (!currentFocus.hasPrimaryFocus) {
+                                    currentFocus.unfocus();
+                                  }
+                                  break;
+                              }
+                            },
+                            tabs: <Widget>[
+                              Tab(child: Text('OVERVIEW')),
+                              Tab(child: Text('SEARCH')),
+                              Tab(child: Text('PLAYLISTS')),
+                              Tab(child: Text('ARTISTS')),
+                              Tab(child: Text('ALBUMS')),
+                              Tab(child: Text('GENRES & MOODS')),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
+                    preferredSize: Size.fromHeight(height * 0.2),
                   ),
-                  preferredSize: Size.fromHeight(height * 0.2),
+                  elevation: 0,
+                  automaticallyImplyLeading: false,
+                  centerTitle: true,
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.blue[900], Colors.black]),
                 ),
-                elevation: 0,
-                automaticallyImplyLeading: false,
-                centerTitle: true,
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.blue[900], Colors.black]),
+                backgroundColor: Colors.black,
+                body: TabBarView(
+                    physics: NeverScrollableScrollPhysics(),
+                    children: <Widget>[
+                      Overview(token: token),
+                      SearchTab(token: token),
+                      PlaylistsScreen(token: token),
+                      ArtistsScreen(token: token),
+                      AlbumsScreen(token: token),
+                      Geners(token: token),
+                    ]),
               ),
-              body: TabBarView(physics: NeverScrollableScrollPhysics(),children: <Widget>[
-                Overview(token: token),
-                Geners(token: token),
-                PlaylistsScreen(token: token),
-                ArtistsScreen(token: token),
-                AlbumsScreen(token: token),
-              ]),
             ),
           );
       },

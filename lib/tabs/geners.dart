@@ -44,7 +44,7 @@ class _GenersState extends State<Geners> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,childAspectRatio: 3 , crossAxisSpacing: 8 , mainAxisSpacing: 8),
                       itemCount: genres.length,
-                  itemBuilder: (context, i) => GenreItem(genere: genres[i]));
+                  itemBuilder: (context, i) => GenreItem(genere: genres[i],token: widget.token,));
             }
           }),
     );

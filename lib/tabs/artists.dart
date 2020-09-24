@@ -43,7 +43,7 @@ class _ArtistsScreenState extends State<ArtistsScreen> {
                   Provider.of<ArtistsProvider>(context, listen: false).artists;
               return ListView.builder(
                       itemCount: artists.length,
-                  itemBuilder: (context, i) => ArtistListItem(artist:artists[i]));
+                  itemBuilder: (context, i) => ArtistListItem(artist:artists[i],token: widget.token,));
             }
           }),
     );

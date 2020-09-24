@@ -43,7 +43,7 @@ class _PlaylistsScreenState extends State<PlaylistsScreen> {
                   Provider.of<PlaylistsProvider>(context, listen: false).playlists;
               return ListView.builder(
                       itemCount: playlists.length,
-                  itemBuilder: (context, i) => PlaylistItem(playlist: playlists[i]));
+                  itemBuilder: (context, i) => PlaylistItem(playlist: playlists[i],token: widget.token,));
             }
           }),
     );
