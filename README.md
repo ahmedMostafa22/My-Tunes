@@ -1,16 +1,22 @@
-# task
+# My Tunes
 
-A new Flutter project.
+A music app gets the data from your spotify account using spotify api and play your favourite songs remoty from spotify app.
 
-## Getting Started
+What i used in this app : 
 
-This project is a starting point for a Flutter application.
+- Provider package .
 
-A few resources to get you started if this is your first Flutter project:
+- REST API .
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Spotify API .
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- OAuth 2.0.
+
+- WebView .
+
+- Future builder .
+
+![iphonexspacegrey_landscape](https://user-images.githubusercontent.com/56844663/94263052-c400f200-ff34-11ea-8825-061d7cf8a937.png)
+![iphonexspacegrey_portrait (1)](https://user-images.githubusercontent.com/56844663/94263056-c5321f00-ff34-11ea-8c49-494056d41095.png)
+![iphonexspacegrey_portrait](https://user-images.githubusercontent.com/56844663/94263059-c6634c00-ff34-11ea-9de0-46bf18f6f155.png)
+
